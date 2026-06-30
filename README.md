@@ -33,7 +33,30 @@ docker compose up -d
 
 uv run python project_pipeline.py
 ```
-
 ## Environment Variables
 
-Create a `.env` file using `.env.example`.
+Before running the project, create a `.env` file by copying `.env.example`.
+
+**Linux/macOS/Git Bash**
+
+```bash
+cp .env.example .env
+```
+
+**PowerShell**
+
+```powershell
+Copy-Item .env.example .env
+```
+
+Then update the values in `.env` with your PostgreSQL credentials.
+
+Example:
+
+```env
+DB_HOST=localhost
+DB_PORT=5432
+DB_NAME=company
+DB_USER=your_username
+DB_PASSWORD=your_password
+```
