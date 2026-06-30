@@ -27,8 +27,7 @@ df = df[[
     "company_name"
 ]]
 
-# Keep only companies containing "Group"
-df = df[df["company_name"].str.contains("Group")] #does the string contain group  
+ 
 
 #5. connect to PostgreSQL
 
@@ -64,5 +63,6 @@ customers_df.to_parquet(
 )
 
 #9. print
+print("\nPipeline completed successfully!\n")
 print(customers_df)
 
