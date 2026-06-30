@@ -5,12 +5,13 @@ import requests
 import pandas as pd
 from dotenv import load_dotenv
 from sqlalchemy import create_engine
-from dotenv import load_dotenv
+
 
 import os
 #2. connect to the API
 url= "https://jsonplaceholder.typicode.com/users"
-response = requests.get(url)
+response = requests.get(url, timeout=10)
+response.raise_for_status()
 data =response.json()
 
 #3.convert json into a DataFrame
@@ -30,12 +31,9 @@ df = df[[
 df = df[df["company_name"].str.contains("Group")] #does the string contain group  
 
 #5. connect to PostgreSQL
-print(os.getenv("DB_HOST"))
-print(os.getenv("DB_PORT"))
-print(os.getenv("DB_USER"))
-print(os.getenv("DB_NAME"))
 
-engine = create_engine(
+load_dotenv()
+connection_url = (
     f"postgresql+psycopg://"
     f"{os.getenv('DB_USER')}:"
     f"{os.getenv('DB_PASSWORD')}@"
@@ -43,6 +41,8 @@ engine = create_engine(
     f"{os.getenv('DB_PORT')}/"
     f"{os.getenv('DB_NAME')}"
 )
+
+engine = create_engine(connection_url)
 
 
 #6. save the data to the database (Postgresql)
