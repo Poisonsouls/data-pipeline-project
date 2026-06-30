@@ -7,8 +7,7 @@ from dotenv import load_dotenv
 from sqlalchemy import create_engine
 <<<<<<< HEAD
 from dotenv import load_dotenv
-=======
->>>>>>> 9a755d1 (Add Docker Compose and environment template)
+
 import os
 #2. connect to the API
 url= "https://jsonplaceholder.typicode.com/users"
