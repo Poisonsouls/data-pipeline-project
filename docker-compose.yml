@@ -2,12 +2,10 @@ services:
   postgres:
     image: postgres:17
 
-    container_name: postgres-db
-
     environment:
-      POSTGRES_USER: layan
-      POSTGRES_PASSWORD: 1234
-      POSTGRES_DB: company
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
 
     ports:
       - "5432:5432"
