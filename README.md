@@ -1,29 +1,39 @@
 # Data Pipeline Project
 
-A simple ETL pipeline built with Python.
+This is my first ETL data pipeline project built with Python.
 
 ## Features
 
-- Extract data from a REST API
-- Transform JSON into a Pandas DataFrame
-- Clean and filter the data
-- Store data in PostgreSQL
-- Query the database using SQL
-- Export the final dataset as a Parquet file
+- Extracts user data from a public REST API
+- Cleans and transforms the data using Pandas
+- Loads the processed data into PostgreSQL using SQLAlchemy
+- Uses environment variables for database credentials
+- Uses uv for dependency management
+- Includes Docker Compose for PostgreSQL
 
 ## Technologies
 
 - Python
-- Requests
 - Pandas
 - SQLAlchemy
 - PostgreSQL
-- Parquet
+- Docker
 - uv
 
-## Run
+## Setup
 
 ```bash
+git clone https://github.com/Poisonsouls/data-pipeline-project.git
+
+cd data-pipeline-project
+
 uv sync
+
+docker compose up -d
+
 uv run python project_pipeline.py
 ```
+
+## Environment Variables
+
+Create a `.env` file using `.env.example`.
