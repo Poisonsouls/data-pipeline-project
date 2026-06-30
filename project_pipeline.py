@@ -30,7 +30,10 @@ df = df[[
 df = df[df["company_name"].str.contains("Group")] #does the string contain group  
 
 #5. connect to PostgreSQL
-load_dotenv()
+print(os.getenv("DB_HOST"))
+print(os.getenv("DB_PORT"))
+print(os.getenv("DB_USER"))
+print(os.getenv("DB_NAME"))
 
 engine = create_engine(
     f"postgresql+psycopg://"
